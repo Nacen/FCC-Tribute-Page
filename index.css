@@ -1,0 +1,110 @@
+*,
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e0e0e0;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+}
+
+#title {
+  margin: 0;
+}
+
+#img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  grid-column: 1 / 2;
+  padding: 25px;
+}
+
+#image {
+  max-width: 100%;
+}
+
+#img-caption {
+  padding: 10px;
+}
+
+#content {
+  width: 100%;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.quotes {
+  font-size: 20px;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-top: 3px solid;
+  border-image: linear-gradient(to left, #2f2cd8 0%, #313a41 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  margin: 0;
+  padding: 40px;
+  counter-increment: section;
+  position: relative;
+  color: #000;
+}
+
+li:nth-child(odd) {
+  border-right: 3px solid;
+  padding-left: 0;
+}
+
+li:nth-child(odd)::before {
+  left: 100%;
+  margin-left: -20px;
+}
+
+li:nth-child(even) {
+  border-left: 3px solid;
+  padding-right: 0;
+}
+li:nth-child(even)::before {
+  right: 100%;
+  margin-right: -20px;
+}
+
+li:first-child {
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+li:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@media (max-width: 767px) {
+  #main {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+  #img-div {
+    grid-column: unset;
+  }
+  #content {
+    grid-column: unset;
+  }
+}
